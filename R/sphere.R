@@ -1,5 +1,18 @@
 
-
+#' Check if a point is from (the tangent space of) a sphere
+#'
+#' @param x point for which we check if it is on a sphere
+#' @param v,base_point tangent vector for we which we check if is in the
+#'   tangent space of a sphere at `base_point`
+#' @param tol the tolerance for the test
+#' @param error a flag to indicate if the function should
+#'   throw an error if the check fails
+#'
+#' @return
+#'  `TRUE` if the check succeeds, `FALSE` if the check fails (
+#'  and `error = FALSE`).
+#'
+#' @export
 sphere_check_point <- function(x, tol = 1e-12, error = TRUE){
   if(! is.matrix(x) || ncol(x) != 1){
     if(error) stop("A sphere must be specified by a 1-column matrix")
@@ -12,6 +25,7 @@ sphere_check_point <- function(x, tol = 1e-12, error = TRUE){
   TRUE
 }
 
+#' @rdname sphere_check_point
 sphere_check_tangent <- function(v, base_point = x, tol = 1e-12, error = TRUE){
   if(! is.matrix(v) || ncol(v) != 1){
     if(error) stop("A sphere tangent must be specified by a 1-column matrix")
@@ -37,10 +51,11 @@ sphere_check_tangent <- function(v, base_point = x, tol = 1e-12, error = TRUE){
 #'   On a sphere going from a point \eqn{p} in direction \eqn{v} beyond
 #'   its pole to \eqn{q} means that the \eqn{\log(p, q) \ne v}.
 #'
+#' @return
 #'   Injective radii:
 #'   * Sphere: \eqn{\pi}
 #'
-#'
+#' @export
 sphere_injective_radius <- function(n){
   pi
 }
@@ -54,6 +69,7 @@ sphere_injective_radius <- function(n){
 #'
 #' @return a matrix with one column and `n+1` rows
 #'
+#' @export
 sphere_random_point <- function(n){
   x <- randn(n+1, 1)
   x / sqrt(sum(x^2))
@@ -66,6 +82,9 @@ sphere_random_point <- function(n){
 #'
 #' @param base_point the point from the n-sphere. A matrix with one column.
 #'
+#' @return a matrix with one column and `nrow(base_point)` rows
+#'
+#' @export
 sphere_random_tangent <- function(base_point, ...){
   v <- randn(nrow(base_point) - 1, 1, ...)
   # Get the nullspace of the base_point
@@ -73,26 +92,56 @@ sphere_random_tangent <- function(base_point, ...){
   ns %*% v
 }
 
+#' Project a point to (the tangent space of ) a sphere
+#'
+#' @param x,v,base_point matrix with one column
+#'
+#' @return the projected matrix
+#'
+#' @export
 sphere_project_point <- function(x){
   matrix(x, ncol = 1) / sqrt(sum(x^2))
 }
 
+#' @rdname sphere_project_point
 sphere_project_tangent <- function(v, base_point){
   base_point <- base_point / sqrt(sum(base_point^2))
   v - drop(t(base_point) %*% v) * base_point
 }
 
+
+#' Exponential map on a n-sphere
+#'
+#' Go from the `base_point` in the direction `v`.
+#'
+#' @param v a tangent vector
+#' @param base_point a point on a sphere
+#'
+#' @details
+#'   The exponential map on the sphere is
+#'     \deqn{\exp_p(v) = \cos(||v||) p + \sin(||v||)\frac{v}{||v||},}
+#'   where \eqn{||v||} is the norm of the tangent vector and \eqn{p}
+#'   is the `base_point`.
+#'
 sphere_map <- function(v, base_point){
-  radius <- sqrt(sum(base_point^2))
-  base_point <- base_point  / radius
   norm_v <- sqrt(sum(v^2))
   if(abs(norm_v < 1e-18)){
-    radius * (cos(norm_v) * base_point + v)
+    cos(norm_v) * base_point + v
   }else{
-    radius * (cos(norm_v) * base_point + sin(norm_v) / norm_v * v)
+    cos(norm_v) * base_point + sin(norm_v) / norm_v * v
   }
 }
 
+#' Find the tangent vector that connects two points on a sphere
+#'
+#' @param base_point,target_point two points on a sphere
+#'
+#' @details
+#'   The inverse of the exponential map on the sphere is
+#'     \deqn{\log(p, q) = \frac{\alpha}{\sin(\alpha)}(q - (p^T q) p),}
+#'   where \eqn{\alpha = \cos^{-1}(p^T q)}, \eqn{p} is the `base_point`
+#'   and \eqn{q} is the `target_point`.
+#'
 sphere_log <- function(base_point, target_point){
   sphere_check_point(base_point)
   sphere_check_point(target_point)

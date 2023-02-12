@@ -1,5 +1,4 @@
 test_that("sphere functions are consistent", {
-
   point <- sphere_random_point(n = 2)
   expect_true(sphere_check_point(point))
 

@@ -9,6 +9,9 @@ sphere_random_tangent(base_point, ...)
 \arguments{
 \item{base_point}{the point from the n-sphere. A matrix with one column.}
 }
+\value{
+a matrix with one column and \code{nrow(base_point)} rows
+}
 \description{
 The elements of the tangent space for a \eqn{p \in \mathbb{S}^{n}}
 are \eqn{\mathcal{T}_p\mathbb{S}^n :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}

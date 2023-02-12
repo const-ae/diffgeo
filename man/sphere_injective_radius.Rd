@@ -9,6 +9,12 @@ sphere_injective_radius(n)
 \arguments{
 \item{n}{the dimension of the manifold}
 }
+\value{
+Injective radii:
+\itemize{
+\item Sphere: \eqn{\pi}
+}
+}
 \description{
 The injective radius of a manifold
 }
@@ -20,9 +26,4 @@ would return the original tangent vector.
 
 On a sphere going from a point \eqn{p} in direction \eqn{v} beyond
 its pole to \eqn{q} means that the \eqn{\log(p, q) \ne v}.
-
-Injective radii:
-\itemize{
-\item Sphere: \eqn{\pi}
-}
 }
