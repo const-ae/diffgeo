@@ -7,7 +7,7 @@
 \usage{
 sphere_check_point(x, tol = 1e-12, error = TRUE)
 
-sphere_check_tangent(v, base_point = x, tol = 1e-12, error = TRUE)
+sphere_check_tangent(v, base_point, tol = 1e-12, error = TRUE)
 }
 \arguments{
 \item{x}{point for which we check if it is on a sphere}

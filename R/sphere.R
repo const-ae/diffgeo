@@ -26,7 +26,7 @@ sphere_check_point <- function(x, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_check_point
-sphere_check_tangent <- function(v, base_point = x, tol = 1e-12, error = TRUE){
+sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   if(! is.matrix(v) || ncol(v) != 1){
     if(error) stop("A sphere tangent must be specified by a 1-column matrix")
     FALSE
@@ -54,6 +54,7 @@ sphere_check_tangent <- function(v, base_point = x, tol = 1e-12, error = TRUE){
 #' @return
 #'   Injective radii:
 #'   * Sphere: \eqn{\pi}
+#'   * Grassmann: \eqn{\pi/2}
 #'
 #' @export
 sphere_injective_radius <- function(n){
@@ -62,7 +63,7 @@ sphere_injective_radius <- function(n){
 
 #' Generate a random point on the n-sphere
 #'
-#' The elements of a sphere are \eqn{\mathbb{S}^n := \{x \in \mathbb{R}^{n+1} | \sum_i x_i^2 = 1\}}
+#' The elements of a sphere are \eqn{\text{S}(n) := \{x \in \mathbb{R}^{n+1} | \sum_i x_i^2 = 1\}}
 #'
 #' @param n the dimension of the sphere-manifold. The
 #'   familiar sphere in 3D dimensions for `n = 2`.
@@ -77,8 +78,8 @@ sphere_random_point <- function(n){
 
 #' Generate a random tangent vector to a point on the n-sphere
 #'
-#' The elements of the tangent space for a \eqn{p \in \mathbb{S}^{n}}
-#' are \eqn{\mathcal{T}_p\mathbb{S}^n :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}
+#' The elements of the tangent space for a \eqn{p \in \text{S}(n)}
+#' are \eqn{\mathcal{T}_p\text{S}(n) :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}
 #'
 #' @param base_point the point from the n-sphere. A matrix with one column.
 #'

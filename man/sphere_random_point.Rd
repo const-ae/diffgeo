@@ -14,5 +14,5 @@ familiar sphere in 3D dimensions for \code{n = 2}.}
 a matrix with one column and \code{n+1} rows
 }
 \description{
-The elements of a sphere are \eqn{\mathbb{S}^n := \{x \in \mathbb{R}^{n+1} | \sum_i x_i^2 = 1\}}
+The elements of a sphere are \eqn{\text{S}(n) := \{x \in \mathbb{R}^{n+1} | \sum_i x_i^2 = 1\}}
 }

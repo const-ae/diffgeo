@@ -13,6 +13,6 @@ sphere_random_tangent(base_point, ...)
 a matrix with one column and \code{nrow(base_point)} rows
 }
 \description{
-The elements of the tangent space for a \eqn{p \in \mathbb{S}^{n}}
-are \eqn{\mathcal{T}_p\mathbb{S}^n :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}
+The elements of the tangent space for a \eqn{p \in \text{S}(n)}
+are \eqn{\mathcal{T}_p\text{S}(n) :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}
 }
