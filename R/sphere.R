@@ -38,12 +38,12 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   TRUE
 }
 
-#' The injective radius of a manifold
+#' The injectivity radius of a manifold
 #'
 #' @param n the dimension of the manifold
 #'
 #' @details
-#'   The injective radius is the size of the
+#'   The injectivity radius is the size of the
 #'   largest tangent vector for which the exponential map
 #'   is a diffeomorphism, i.e., inverting the exponential map
 #'   would return the original tangent vector.
@@ -52,12 +52,16 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 #'   its pole to \eqn{q} means that the \eqn{\log(p, q) \ne v}.
 #'
 #' @return
-#'   Injective radii:
+#'   injectivity radii:
 #'   * Sphere: \eqn{\pi}
 #'   * Grassmann: \eqn{\pi/2}
+#'   * Stiefel: \eqn{\pi}
+#'
+#' @references
+#'  Rentmeesters, Quentin. “Algorithms for Data Fitting on Some Common Homogeneous Spaces,” (2013)
 #'
 #' @export
-sphere_injective_radius <- function(n){
+sphere_injectivity_radius <- function(n){
   pi
 }
 

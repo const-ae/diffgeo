@@ -20,9 +20,9 @@ test_that("Grassmann functions are consistent", {
   expect_true(grassmann_check_tangent(proj_tang, point))
 
   # Check map and log
-  # Make sure that the tangent is smaller than the injective radius
+  # Make sure that the tangent is smaller than the injectivity radius
   tangent <- tangent / (sqrt(sum(tangent^2)) * 1.2)
-  expect_lt(sqrt(sum(tangent^2)), grassmann_injective_radius())
+  expect_lt(sqrt(sum(tangent^2)), grassmann_injectivity_radius())
   new_point <- grassmann_map(tangent, point)
   new_tangent <- grassmann_log(point, new_point)
   expect_equal(new_tangent, tangent)

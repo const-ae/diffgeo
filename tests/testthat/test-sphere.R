@@ -18,9 +18,9 @@ test_that("sphere functions are consistent", {
   expect_true(sphere_check_tangent(proj_tang, point))
 
   # Check map and log
-  # Make sure that the tangent is smaller than the injective radius
+  # Make sure that the tangent is smaller than the injectivity radius
   tangent <- tangent / (sqrt(sum(tangent^2)) * 1.2)
-  expect_lt(sqrt(sum(tangent^2)), sphere_injective_radius())
+  expect_lt(sqrt(sum(tangent^2)), sphere_injectivity_radius())
   new_point <- sphere_map(tangent, point)
   new_tangent <- sphere_log(point, new_point)
   expect_equal(new_tangent, tangent)
