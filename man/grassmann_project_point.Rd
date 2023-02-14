@@ -7,7 +7,7 @@
 \usage{
 grassmann_project_point(x)
 
-grassmann_project_tangent(x, base_point)
+grassmann_project_tangent(v, base_point)
 }
 \arguments{
 \item{x, v, base_point}{matrix}

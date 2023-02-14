@@ -4,12 +4,12 @@
 \alias{grassmann_map}
 \title{Exponential map on a Grassmann manifold}
 \usage{
-grassmann_map(x, base_point)
+grassmann_map(v, base_point)
 }
 \arguments{
-\item{base_point}{a point on a Grassmann manifold}
-
 \item{v}{a tangent vector}
+
+\item{base_point}{a point on a Grassmann manifold}
 }
 \description{
 Go from the \code{base_point} in the direction \code{v}.

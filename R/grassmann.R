@@ -68,12 +68,12 @@ grassmann_random_tangent <- function(base_point, ...){
 #'
 #' @export
 grassmann_project_point <- function(x){
-  project_stiefel(x)
+  stiefel_project_point(x)
 }
 
 #' @rdname grassmann_project_point
-grassmann_project_tangent <- function(x, base_point){
-  x - base_point %*% t(base_point) %*% x
+grassmann_project_tangent <- function(v, base_point){
+  v - base_point %*% t(base_point) %*% v
 }
 
 
@@ -91,14 +91,14 @@ grassmann_project_tangent <- function(x, base_point){
 #'   is the `base_point`.
 #'
 #' @export
-grassmann_map <- function(x, base_point){
+grassmann_map <- function(v, base_point){
   # Adapted from https://github.com/JuliaManifolds/Manifolds.jl/blob/master/src/manifolds/GrassmannStiefel.jl#L93
   if(ncol(base_point) == 0 || nrow(base_point) == 0){
     base_point
-  }else if(any(is.na(x))){
-    matrix(NA, nrow = nrow(x), ncol = ncol(x))
+  }else if(any(is.na(v))){
+    matrix(NA, nrow = nrow(v), ncol = ncol(v))
   }else{
-    svd <- svd(x)
+    svd <- svd(v)
     z <- base_point %*% svd$v %*% diag(cos(svd$d), nrow = length(svd$d)) %*% t(svd$v) +
       svd$u %*% diag(sin(svd$d), nrow = length(svd$d)) %*% t(svd$v)
     z
