@@ -15,5 +15,5 @@ a matrix with \code{n} rows and \code{k} orthogonal columns.
 \description{
 The elements of a Grassmann manifold are represented
 by matrices with orthogonal columns
-(\eqn{\text{Gr}(n, k) := \{x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
+(\eqn{\text{Gr}(n, k) := \{\text{span}(x): x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
 }

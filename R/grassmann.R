@@ -31,7 +31,7 @@ grassmann_injective_radius <- function(n){
 #'
 #' The elements of a Grassmann manifold are represented
 #' by matrices with orthogonal columns
-#' (\eqn{\text{Gr}(n, k) := \{x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
+#' (\eqn{\text{Gr}(n, k) := \{\text{span}(x): x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
 #'
 #' @param n,k the dimensions of the Grassmann manifold.
 #'
