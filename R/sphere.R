@@ -148,6 +148,7 @@ sphere_map <- function(v, base_point){
 #'   and \eqn{q} is the `target_point`.
 #'
 sphere_log <- function(base_point, target_point){
+  tol <- 1e-12
   sphere_check_point(base_point)
   sphere_check_point(target_point)
 
