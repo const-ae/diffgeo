@@ -141,6 +141,7 @@ stiefel_map <- function(v, base_point){
 #'   Zimmermann, Ralf, and Knut Hüper. “Computing the Riemannian Logarithm on the Stiefel
 #'   Manifold: Metrics, Methods and Performance.” arXiv, February 8, 2022. http://arxiv.org/abs/2103.12046.
 #'
+#' @export
 stiefel_log <- function(base_point, target_point, tolerance = 1e-8, max_iter = 100){
 
   n <- nrow(base_point)

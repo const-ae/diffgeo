@@ -128,6 +128,7 @@ sphere_project_tangent <- function(v, base_point){
 #'   where \eqn{||v||} is the norm of the tangent vector and \eqn{p}
 #'   is the `base_point`.
 #'
+#' @export
 sphere_map <- function(v, base_point){
   norm_v <- sqrt(sum(v^2))
   if(abs(norm_v < 1e-18)){
@@ -147,6 +148,7 @@ sphere_map <- function(v, base_point){
 #'   where \eqn{\alpha = \cos^{-1}(p^T q)}, \eqn{p} is the `base_point`
 #'   and \eqn{q} is the `target_point`.
 #'
+#' @export
 sphere_log <- function(base_point, target_point){
   tol <- 1e-12
   sphere_check_point(base_point)
