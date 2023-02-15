@@ -18,11 +18,13 @@ grassmann_check_point <- function(x, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname grassmann_check_point
+#' @export
 grassmann_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   stiefel_check_tangent(v, base_point, tol = tol, error = error)
 }
 
 #' @rdname sphere_injectivity_radius
+#' @export
 grassmann_injectivity_radius <- function(){
   pi / 2
 }
@@ -72,6 +74,7 @@ grassmann_project_point <- function(x){
 }
 
 #' @rdname grassmann_project_point
+#' @export
 grassmann_project_tangent <- function(v, base_point){
   v - base_point %*% t(base_point) %*% v
 }
@@ -156,6 +159,7 @@ grassmann_angle_from_tangent <- function(v, normalized = TRUE){
 }
 
 #' @rdname grassmann_angle_from_tangent
+#' @export
 grassmann_angle_from_points <- function(base_point, target_point){
   grassmann_angle_from_tangent(grassmann_log(base_point, target_point))
 }

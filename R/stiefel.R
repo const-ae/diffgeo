@@ -28,6 +28,7 @@ stiefel_check_point <- function(x, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname stiefel_check_point
+#' @export
 stiefel_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   if(! is.matrix(v) ){
     if(error) stop("A Stiefel tangent must be specified by a matrix")
@@ -42,6 +43,7 @@ stiefel_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_injectivity_radius
+#' @export
 stiefel_injectivity_radius <- function(){
   0.89 * pi
 }
@@ -94,6 +96,7 @@ stiefel_project_point <- function(x){
 }
 
 #' @rdname stiefel_project_point
+#' @export
 stiefel_project_tangent <- function(v, base_point){
   v - base_point %*% sym(t(base_point) %*% v)
 }

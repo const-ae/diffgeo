@@ -21,6 +21,7 @@ euclidean_check_point <- function(x, error = TRUE){
 }
 
 #' @rdname euclidean_check_point
+#' @export
 euclidean_check_tangent <- function(v, base_point, error = TRUE){
   if(! is.numeric(v)){
     if(error) stop("The elements of the Euclidean manifold must be numbers (i.e., scalars, vectors or matrices)")
@@ -34,6 +35,7 @@ euclidean_check_tangent <- function(v, base_point, error = TRUE){
 }
 
 #' @rdname sphere_injectivity_radius
+#' @export
 euclidean_injectivity_radius <- function(){
   Inf
 }
@@ -81,6 +83,7 @@ euclidean_project_point <- function(x){
 }
 
 #' @rdname rotation_project_point
+#' @export
 euclidean_project_tangent <- function(v, base_point){
   v
 }

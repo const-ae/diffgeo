@@ -26,6 +26,7 @@ spd_check_point <- function(x, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname spd_check_point
+#' @export
 spd_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   if(! is.matrix(v) || ncol(v) != nrow(v)){
     if(error) stop("A SPD tangent must be specified by a square matrix")
@@ -39,6 +40,7 @@ spd_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_injectivity_radius
+#' @export
 spd_injectivity_radius <- function(){
   Inf
 }

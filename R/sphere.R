@@ -26,6 +26,7 @@ sphere_check_point <- function(x, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_check_point
+#' @export
 sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
   if(! is.matrix(v) || ncol(v) != 1){
     if(error) stop("A sphere tangent must be specified by a 1-column matrix")
@@ -112,6 +113,7 @@ sphere_project_point <- function(x){
 }
 
 #' @rdname sphere_project_point
+#' @export
 sphere_project_tangent <- function(v, base_point){
   base_point <- base_point / sqrt(sum(base_point^2))
   v - drop(t(base_point) %*% v) * base_point
