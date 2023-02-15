@@ -146,7 +146,7 @@ stiefel_map <- function(v, base_point){
 #'
 #' @export
 stiefel_log <- function(base_point, target_point, tolerance = 1e-8, max_iter = 100){
-
+# See https://github.com/RalfZimmermannSDU/RiemannStiefelLog/blob/main/Stiefel_log_general_metric/Matlab/Stiefel_Log.m
   n <- nrow(base_point)
   p <- ncol(base_point)
   zero <- matrix(0, nrow = p, ncol = p)
@@ -156,9 +156,14 @@ stiefel_log <- function(base_point, target_point, tolerance = 1e-8, max_iter = 1
   # Orthogonal completion of [M N]' (step 3)
   Vk <- qr.Q(qr(rbind(M, qr.R(qn))), complete = TRUE)
   Vk[,seq_len(p)] <- rbind(M, qr.R(qn))
+  if(Matrix::determinant(Vk)$sign != 1){
+    # det == -1 --> flip one unimportant axis
+    Vk[,p+1] <- -1 * Vk[,p+1]
+  }
 
   for(k in seq(max_iter)){
-    log_Vk <- expm::logm(Vk)
+    Vk <- rotation_project_point(Vk)
+    log_Vk <- my_matrix_log(Vk)
     C <- log_Vk[p+seq_len(p),p+seq_len(p),drop=FALSE]
     if(sqrt(sum(C^2)) < tolerance){
       break
