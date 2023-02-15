@@ -1,14 +1,19 @@
 Package: diffgeo
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Functions to work with common manifolds
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
+                    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3762-068X"))
+Description: Manifolds are sets of vectors or matrices with additional constraints.
+  This package provides functions to project points onto these manifolds, to generate
+  random elements from a manifold or to walk along lines on the manifold. It implements
+  these functions for Euclidean, Sphere, Rotation (SO(n)), symmetric positive definite (SPD),
+  Grassmann, and Stiefel manifolds.
+License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+Imports: 
+    expm,
+    Matrix
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
