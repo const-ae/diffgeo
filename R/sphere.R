@@ -55,9 +55,9 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 #' @return
 #'   injectivity radii:
 #'   * Sphere: \eqn{\pi}
-#'   * Rotation: \eqn{\pi/\sqrt{2}}
+#'   * Rotation: \eqn{\sqrt{n} \pi}
 #'   * Grassmann: \eqn{\pi/2}
-#'   * Stiefel: \eqn{0.89\,\pi}
+#'   * Stiefel: \eqn{>0.89\,\pi}
 #'   * Symmetric positive definite (SPD): \eqn{\inf}
 #'   * Euclidean: \eqn{\inf}
 #'

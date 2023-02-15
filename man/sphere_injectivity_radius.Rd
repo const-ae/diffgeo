@@ -14,7 +14,7 @@ euclidean_injectivity_radius()
 
 grassmann_injectivity_radius()
 
-rotation_injectivity_radius()
+rotation_injectivity_radius(n)
 
 sphere_injectivity_radius()
 
@@ -29,9 +29,9 @@ spd_injectivity_radius()
 injectivity radii:
 \itemize{
 \item Sphere: \eqn{\pi}
-\item Rotation: \eqn{\pi/\sqrt{2}}
+\item Rotation: \eqn{\sqrt{n} \pi}
 \item Grassmann: \eqn{\pi/2}
-\item Stiefel: \eqn{0.89\,\pi}
+\item Stiefel: \eqn{>0.89\,\pi}
 \item Symmetric positive definite (SPD): \eqn{\inf}
 \item Euclidean: \eqn{\inf}
 }
