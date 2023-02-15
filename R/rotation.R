@@ -142,31 +142,7 @@ rotation_log <- function(base_point, target_point){
   if(nrow(base_point) == 0){
     base_point
   }else{
-    suppressWarnings({
-      logm <- expm::logm(t(base_point) %*% target_point)
-    })
-    if(all(is.na(logm))){
-      # The Higham08 algorithm failed. Try Eigen
-      logm <- tryCatch({
-        expm::logm(t(base_point) %*% target_point, method = "Eigen")
-      }, error = function(error){
-        for(idx in 1:10){
-          tmp <- tryCatch({
-            expm::logm(t(base_point) %*% target_point + randn(nrow(base_point), ncol(base_point), sd = 1e-12), method = "Eigen")
-          }, error = function(error2) NULL)
-          if(is.null(tmp)){
-            # try once more
-          }else{
-            break
-          }
-        }
-        tmp
-      })
-      if(is.null(logm)){
-        stop("Cannot calculate the matrix logarithm. It may not exist")
-      }
-    }
-
+    logm <- my_matrix_log(t(base_point) %*% target_point)
     skew(logm)
   }
 }
