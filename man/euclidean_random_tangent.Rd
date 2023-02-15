@@ -8,6 +8,8 @@ euclidean_random_tangent(base_point, ...)
 }
 \arguments{
 \item{base_point}{the point from a euclidean manifold}
+
+\item{...}{additional parameters passed to \code{\link{rnorm}}}
 }
 \value{
 an array with the same dimensions as \code{base_point}

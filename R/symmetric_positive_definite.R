@@ -56,9 +56,9 @@ spd_injectivity_radius <- function(){
 #' @return a symmetric positive definite matrix
 #'
 #' @export
-spd_random_point <- function(n, ...){
+spd_random_point <- function(n){
   vec <- qr.Q(qr(randn(n, n)))
-  val <- rlnorm(n, meanlog = 0, sd = 0.1)
+  val <- rlnorm(n, meanlog = 0, sdlog = 0.1)
   vec %*% diag(val, nrow = n) %*% t(vec)
 }
 
@@ -69,6 +69,7 @@ spd_random_point <- function(n, ...){
 #' are skew-symmetric matrices (\eqn{\mathcal{T}_p\text{SPD}(n) :=  \{v \in \mathbb{R}^{n\times n} | v = v^T\}})
 #'
 #' @param base_point the point from a rotation manifold. A square matrix.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a skew-symmetruc matrix.
 #'
@@ -102,6 +103,8 @@ spd_project_point <- function(x, min_eigen_value = 0.01){
   }
 }
 
+#' @rdname spd_project_point
+#' @export
 spd_project_tangent <- function(v, base_point = NULL){
   sym(v)
 }

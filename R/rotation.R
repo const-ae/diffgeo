@@ -47,8 +47,8 @@ rotation_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 
 #' @rdname sphere_injectivity_radius
 #' @export
-rotation_injectivity_radius <- function(){
-  pi / sqrt(2)
+rotation_injectivity_radius <- function(n){
+  pi * sqrt(2)
 }
 
 
@@ -62,8 +62,8 @@ rotation_injectivity_radius <- function(){
 #' @return an orthogonal matrix with `Matrix::det(x) == 1`
 #'
 #' @export
-rotation_random_point <- function(n, ...){
-  x <- randn(n, n, ...)
+rotation_random_point <- function(n){
+  x <- randn(n, n)
   rotation_project_point(x)
 }
 
@@ -73,6 +73,7 @@ rotation_random_point <- function(n, ...){
 #' are skew-symmetric matrices (\eqn{\mathcal{T}_p\text{SO}(n) :=  \{v \in \mathbb{R}^{n\times n} | w = pv, v + v^T = 0\}})
 #'
 #' @param base_point the point from a rotation manifold. A square matrix.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a skew-symmetruc matrix.
 #'
@@ -85,7 +86,7 @@ rotation_random_tangent <- function(base_point, ...){
 }
 
 
-#' Project a point to (the tangent space of ) a rotation manifold
+#' Project a point to (the tangent space of) a rotation manifold
 #'
 #' @param x,v,base_point square matrix
 #'

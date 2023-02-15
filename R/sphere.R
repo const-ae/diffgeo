@@ -90,6 +90,7 @@ sphere_random_point <- function(n){
 #' are \eqn{\mathcal{T}_p\text{S}(n) :=  \{v \in \mathbb{R}^n | \sum_i v_i p_i = 0\}}
 #'
 #' @param base_point the point from the n-sphere. A matrix with one column.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a matrix with one column and `nrow(base_point)` rows
 #'

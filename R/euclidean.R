@@ -47,7 +47,7 @@ euclidean_injectivity_radius <- function(){
 #' \eqn{\text{Eu}(n,\cdot) := \{x \in \mathbb{R}^{n\times \cdot}\}}
 #'
 #' @param n the dimension of the Euclidean manifold (can be a vector)
-#' @param ... additional arguments passed to [`rnorm`]
+#' @param ... additional parameters passed to [`rnorm`]#'
 #'
 #' @return an array
 #'
@@ -62,6 +62,7 @@ euclidean_random_point <- function(n, ...){
 #' are skew-symmetric matrices (\eqn{\mathcal{T}_p\text{Eu}(n,\cdot) :=  \{v \in \mathbb{R}^{n\times \cdot}\}})
 #'
 #' @param base_point the point from a euclidean manifold
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return an array with the same dimensions as `base_point`
 #'
@@ -82,7 +83,7 @@ euclidean_project_point <- function(x){
   x
 }
 
-#' @rdname rotation_project_point
+#' @rdname euclidean_project_point
 #' @export
 euclidean_project_tangent <- function(v, base_point){
   v

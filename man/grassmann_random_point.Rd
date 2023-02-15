@@ -8,6 +8,8 @@ grassmann_random_point(n, k, ...)
 }
 \arguments{
 \item{n, k}{the dimensions of the Grassmann manifold.}
+
+\item{...}{additional parameters passed to \code{\link{rnorm}}}
 }
 \value{
 a matrix with \code{n} rows and \code{k} orthogonal columns.

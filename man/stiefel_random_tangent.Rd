@@ -8,6 +8,8 @@ stiefel_random_tangent(base_point, ...)
 }
 \arguments{
 \item{base_point}{the point from a Grassmann manifold. A matrix with orthogonal columns.}
+
+\item{...}{additional parameters passed to \code{\link{rnorm}}}
 }
 \value{
 a matrix with \code{n} rows and \code{k} columns.

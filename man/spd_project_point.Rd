@@ -2,9 +2,12 @@
 % Please edit documentation in R/symmetric_positive_definite.R
 \name{spd_project_point}
 \alias{spd_project_point}
+\alias{spd_project_tangent}
 \title{Project a point to (the tangent space of ) an SPD manifold}
 \usage{
 spd_project_point(x, min_eigen_value = 0.01)
+
+spd_project_tangent(v, base_point = NULL)
 }
 \arguments{
 \item{x, v, base_point}{square matrix}

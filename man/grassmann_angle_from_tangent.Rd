@@ -12,7 +12,12 @@ grassmann_angle_from_points(base_point, target_point)
 \arguments{
 \item{v}{tanget vector}
 
+\item{normalized}{flag to indicate if the angle is forced to be less than 180 degrees}
+
 \item{base_point, target_point}{two points from a Grassmann manifold}
+}
+\value{
+the angle in degree
 }
 \description{
 Find the rotation angle for between elements of Grassmann manifolds

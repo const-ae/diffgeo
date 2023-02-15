@@ -4,7 +4,7 @@
 \alias{spd_random_point}
 \title{Generate a random point on an SPD manifold}
 \usage{
-spd_random_point(n, ...)
+spd_random_point(n)
 }
 \arguments{
 \item{n}{the dimension of the SPD manifold.}

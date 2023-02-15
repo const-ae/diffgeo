@@ -8,6 +8,8 @@ sphere_random_tangent(base_point, ...)
 }
 \arguments{
 \item{base_point}{the point from the n-sphere. A matrix with one column.}
+
+\item{...}{additional parameters passed to \code{\link{rnorm}}}
 }
 \value{
 a matrix with one column and \code{nrow(base_point)} rows

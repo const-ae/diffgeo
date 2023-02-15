@@ -9,7 +9,7 @@ euclidean_random_point(n, ...)
 \arguments{
 \item{n}{the dimension of the Euclidean manifold (can be a vector)}
 
-\item{...}{additional arguments passed to \code{\link{rnorm}}}
+\item{...}{additional parameters passed to \code{\link{rnorm}}#'}
 }
 \value{
 an array

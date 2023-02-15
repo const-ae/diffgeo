@@ -4,7 +4,7 @@
 \alias{rotation_random_point}
 \title{Generate a random point on a rotation manifold (SO(n))}
 \usage{
-rotation_random_point(n, ...)
+rotation_random_point(n)
 }
 \arguments{
 \item{n}{the dimension of the rotation manifold.}

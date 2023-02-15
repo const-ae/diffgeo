@@ -36,6 +36,7 @@ grassmann_injectivity_radius <- function(){
 #' (\eqn{\text{Gr}(n, k) := \{\text{span}(x): x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
 #'
 #' @param n,k the dimensions of the Grassmann manifold.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a matrix with `n` rows and `k` orthogonal columns.
 #'
@@ -51,6 +52,7 @@ grassmann_random_point <- function(n, k, ...){
 #' are \eqn{\mathcal{T}_p\text{Gr}(n,k) :=  \{v \in \mathbb{R}^n | p^Tv + v^Tp = 0\}}
 #'
 #' @param base_point the point from a Grassmann manifold. A matrix with orthogonal columns.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a matrix with `n` rows and `k` columns.
 #'
@@ -142,6 +144,9 @@ grassmann_log <- function(base_point, target_point){
 #'
 #' @param v tanget vector
 #' @param base_point,target_point two points from a Grassmann manifold
+#' @param normalized flag to indicate if the angle is forced to be less than 180 degrees
+#'
+#' @return the angle in degree
 #'
 #' @references
 #'   Bendokat, Thomas, Ralf Zimmermann, and P-A. Absil. "A Grassmann manifold handbook: Basic geometry and computational aspects." arXiv preprint arXiv:2011.13699 (2020).

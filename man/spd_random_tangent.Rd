@@ -8,6 +8,8 @@ spd_random_tangent(base_point, ...)
 }
 \arguments{
 \item{base_point}{the point from a rotation manifold. A square matrix.}
+
+\item{...}{additional parameters passed to \code{\link{rnorm}}}
 }
 \value{
 a skew-symmetruc matrix.

@@ -2,9 +2,12 @@
 % Please edit documentation in R/euclidean.R
 \name{euclidean_project_point}
 \alias{euclidean_project_point}
+\alias{euclidean_project_tangent}
 \title{Project a point to (the tangent space of ) a Euclidean manifold}
 \usage{
 euclidean_project_point(x)
+
+euclidean_project_tangent(v, base_point)
 }
 \arguments{
 \item{x, v, base_point}{arrays}

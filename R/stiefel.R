@@ -55,6 +55,7 @@ stiefel_injectivity_radius <- function(){
 #' (\eqn{\text{St}(n, k) := \{x \in \mathbb{R}^{n\times k} | x^T x = I\}}).
 #'
 #' @param n,k the dimensions of the Grassmann manifold.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a matrix with `n` rows and `k` orthogonal columns.
 #'
@@ -70,6 +71,7 @@ stiefel_random_point <- function(n, k, ...){
 #' are \eqn{\mathcal{T}_p\text{St}(n,k) :=  \{v \in \mathbb{R}^n | p^Tv + v^Tp = 0\}}
 #'
 #' @param base_point the point from a Grassmann manifold. A matrix with orthogonal columns.
+#' @param ... additional parameters passed to [`rnorm`]
 #'
 #' @return a matrix with `n` rows and `k` columns.
 #'
