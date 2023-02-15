@@ -54,8 +54,9 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 #' @return
 #'   injectivity radii:
 #'   * Sphere: \eqn{\pi}
+#'   * Rotation: \eqn{\pi/\sqrt{2}}
 #'   * Grassmann: \eqn{\pi/2}
-#'   * Stiefel: \eqn{\pi}
+#'   * Stiefel: \eqn{0.89\,\pi}
 #'
 #' @references
 #'  Rentmeesters, Quentin. “Algorithms for Data Fitting on Some Common Homogeneous Spaces,” (2013)
