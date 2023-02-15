@@ -9,7 +9,7 @@ spd_map(v, base_point)
 \arguments{
 \item{v}{a tangent vector}
 
-\item{base_point}{a point on a sphere}
+\item{base_point}{a point on a SPD manifold}
 }
 \description{
 Go from the \code{base_point} in the direction \code{v}.

@@ -7,7 +7,7 @@
 euclidean_random_point(n, ...)
 }
 \arguments{
-\item{n}{the dimension of the rotation manifold (can be a vector)}
+\item{n}{the dimension of the Euclidean manifold (can be a vector)}
 
 \item{...}{additional arguments passed to \code{\link{rnorm}}}
 }
@@ -15,6 +15,6 @@ euclidean_random_point(n, ...)
 an array
 }
 \description{
-The elements of a rotation manifold (also called special orthogonal) are
+The elements of a Euclidean manifold (also called special orthogonal) are
 \eqn{\text{Eu}(n,\cdot) := \{x \in \mathbb{R}^{n\times \cdot}\}}
 }

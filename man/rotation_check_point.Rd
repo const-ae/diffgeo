@@ -10,7 +10,7 @@ rotation_check_point(x, tol = 1e-12, error = TRUE)
 rotation_check_tangent(v, base_point, tol = 1e-12, error = TRUE)
 }
 \arguments{
-\item{x}{point for which we check if it is on a sphere}
+\item{x}{point for which we check if it is on a rotation manifold}
 
 \item{tol}{the tolerance for the test}
 
@@ -18,7 +18,7 @@ rotation_check_tangent(v, base_point, tol = 1e-12, error = TRUE)
 throw an error if the check fails}
 
 \item{v, base_point}{tangent vector for we which we check if is in the
-tangent space of a sphere at \code{base_point}}
+tangent space of a rotation manifold at \code{base_point}}
 }
 \value{
 \code{TRUE} if the check succeeds, \code{FALSE} if the check fails (

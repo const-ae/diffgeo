@@ -130,7 +130,7 @@ stiefel_map <- function(v, base_point){
 
 #' Find the tangent vector that connects two points on a Stiefel manifold
 #'
-#' @param base_point,target_point two points on a sphere
+#' @param base_point,target_point two points on a Stiefel manifold
 #' @param tolerance,max_iter parameters to control the numerical approximation
 #'   of the tangent vector calculation.
 #'

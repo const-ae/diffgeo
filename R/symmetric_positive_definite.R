@@ -110,7 +110,7 @@ spd_project_tangent <- function(v, base_point = NULL){
 #' Go from the `base_point` in the direction `v`.
 #'
 #' @param v a tangent vector
-#' @param base_point a point on a sphere
+#' @param base_point a point on a SPD manifold
 #'
 #' @details
 #'   The exponential map on a rotation manifold is

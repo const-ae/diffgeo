@@ -7,7 +7,7 @@
 stiefel_log(base_point, target_point, tolerance = 1e-08, max_iter = 100)
 }
 \arguments{
-\item{base_point, target_point}{two points on a sphere}
+\item{base_point, target_point}{two points on a Stiefel manifold}
 
 \item{tolerance, max_iter}{parameters to control the numerical approximation
 of the tangent vector calculation.}

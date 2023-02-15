@@ -41,10 +41,10 @@ euclidean_injectivity_radius <- function(){
 
 #' Generate a random point on a Euclidean manifold
 #'
-#' The elements of a rotation manifold (also called special orthogonal) are
+#' The elements of a Euclidean manifold (also called special orthogonal) are
 #' \eqn{\text{Eu}(n,\cdot) := \{x \in \mathbb{R}^{n\times \cdot}\}}
 #'
-#' @param n the dimension of the rotation manifold (can be a vector)
+#' @param n the dimension of the Euclidean manifold (can be a vector)
 #' @param ... additional arguments passed to [`rnorm`]
 #'
 #' @return an array
@@ -103,9 +103,9 @@ euclidean_map <- function(v, base_point){
   base_point + v
 }
 
-#' Find the tangent vector that connects two points on a rotation manifold
+#' Find the tangent vector that connects two points on a Euclidean manifold
 #'
-#' @param base_point,target_point two points on a rotation manifold
+#' @param base_point,target_point two points on a Euclidean manifold
 #'
 #' @details
 #'   The inverse of the exponential map on a Euclidean manifold is

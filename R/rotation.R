@@ -1,9 +1,9 @@
 
 #' Check if a point is from (the tangent space of) a Rotation Manifold
 #'
-#' @param x point for which we check if it is on a sphere
+#' @param x point for which we check if it is on a rotation manifold
 #' @param v,base_point tangent vector for we which we check if is in the
-#'   tangent space of a sphere at `base_point`
+#'   tangent space of a rotation manifold at `base_point`
 #' @param tol the tolerance for the test
 #' @param error a flag to indicate if the function should
 #'   throw an error if the check fails
@@ -111,7 +111,7 @@ rotation_project_tangent <- function(v, base_point){
 #' Go from the `base_point` in the direction `v`.
 #'
 #' @param v a tangent vector
-#' @param base_point a point on a sphere
+#' @param base_point a point on a rotation manifold
 #'
 #' @details
 #'   The exponential map on a rotation manifold is

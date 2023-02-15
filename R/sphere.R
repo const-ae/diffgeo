@@ -58,6 +58,7 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 #'   * Grassmann: \eqn{\pi/2}
 #'   * Stiefel: \eqn{0.89\,\pi}
 #'   * Symmetric positive definite (SPD): \eqn{\inf}
+#'   * Euclidean: \eqn{\inf}
 #'
 #' @references
 #'  Rentmeesters, Quentin. “Algorithms for Data Fitting on Some Common Homogeneous Spaces,” (2013)

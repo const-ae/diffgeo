@@ -2,15 +2,15 @@
 % Please edit documentation in R/euclidean.R
 \name{euclidean_log}
 \alias{euclidean_log}
-\title{Find the tangent vector that connects two points on a rotation manifold}
+\title{Find the tangent vector that connects two points on a Euclidean manifold}
 \usage{
 euclidean_log(base_point, target_point)
 }
 \arguments{
-\item{base_point, target_point}{two points on a rotation manifold}
+\item{base_point, target_point}{two points on a Euclidean manifold}
 }
 \description{
-Find the tangent vector that connects two points on a rotation manifold
+Find the tangent vector that connects two points on a Euclidean manifold
 }
 \details{
 The inverse of the exponential map on a Euclidean manifold is
