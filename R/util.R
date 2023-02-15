@@ -10,3 +10,8 @@ sym <- function(M){
 skew <- function(M){
   0.5 * (M - t(M))
 }
+
+DIM <- function(x){
+  if(is.array(x)) dim(x)
+  else length(x)
+}
