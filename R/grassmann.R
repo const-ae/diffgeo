@@ -23,7 +23,7 @@ grassmann_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_injectivity_radius
-grassmann_injectivity_radius <- function(n){
+grassmann_injectivity_radius <- function(){
   pi / 2
 }
 

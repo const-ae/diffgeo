@@ -42,7 +42,7 @@ stiefel_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 }
 
 #' @rdname sphere_injectivity_radius
-stiefel_injectivity_radius <- function(n){
+stiefel_injectivity_radius <- function(){
   0.89 * pi
 }
 
