@@ -129,9 +129,9 @@ the Stiefel, and the Rotation manifold have a non-infinite injectivity
 radius. The injectivity radius is furthest we can go along a manifold
 and still guarantee that $\log(p, \exp_p(v))$ returns the original
 tangent vector $v$. The concept is clearest for a 1-Sphere (aka a
-circle): if we go further than 180° ($pi$ radians), we end up at a point
-for which there exist a shorter path to the starting point than the
-original direction.
+circle): if we go further than 180° ($\pi$ radians), we end up at a
+point for which there exist a shorter path to the starting point than
+the original direction.
 
 ``` r
 # Create a random vector with two elements on a circle
