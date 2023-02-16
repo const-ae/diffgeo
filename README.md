@@ -11,7 +11,8 @@ manifolds:
 
 - Euclidean arrays
 - Spheres (in $n$ dimensions)
-- Rotation matrices (also called special orthogonal manifolds $SO(n)$)
+- Rotation matrices (also called special orthogonal manifolds
+  $\text{SO}(n)$)
 - Stiefel manifold (matrices with orthogonal columns)
 - Grassmann manifold (matrices with orthogonal columns but they are only
   considered different if they span separate spaces)
