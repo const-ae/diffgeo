@@ -65,7 +65,7 @@ points(t(rotated_points), pch = 16, col = "red")
 segments(points[1,], points[2,], rotated_points[1,], rotated_points[2,])
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-rotation_visualization_2d-1.png" width="100%" />
 
 We can also create high-dimensional rotations and check the formal
 conditions for the rotation manifold
@@ -124,69 +124,30 @@ rotation_map(v = direction, base_point = rotation2)
 #> [5,] -0.2272798  0.1824053 -0.8152227 -0.1200224  0.4858793
 ```
 
-Lastly, the injectivity radius is an an important concept of every
-manifold. It is the largest distance for which the exponential map is a
-diffeomorphism. The injectivity radius of the rotation manifold is
-$\sqrt{2} \pi$ (*this appears to be only a lower bound*). That means
-that for tangent vectors with a large norm, the exponential map returns
-points for which there exists a more direct connection.
+Lastly, it is important to understand that the Sphere, the Grassmann,
+the Stiefel, and the Rotation manifold have a non-infinite injectivity
+radius. The injectivity radius is furthest we can go along a manifold
+and still guarantee that $\log(p, \exp_p(v))$ returns the original
+tangent vector $v$. The concept is clearest for a 1-Sphere (aka a
+circle): if we go further than 180° ($pi$ radians), we end up at a point
+for which there exist a shorter path to the starting point than the
+original direction.
 
 ``` r
-scaled_dir <- direction / sqrt(sum(direction^2)) * 6
-sqrt(sum(scaled_dir^2))
-#> [1] 6
-
-new_point <- rotation_map(v = scaled_dir, base_point = rotation2)
-rotation_log(rotation2, new_point)
-#>            [,1]       [,2]       [,3]       [,4]       [,5]
-#> [1,]  0.0000000 -1.7348934  0.2927040 -0.5396579  0.4403079
-#> [2,]  1.7348934  0.0000000 -0.3078207  0.8330210 -1.1194375
-#> [3,] -0.2927040  0.3078207  0.0000000  2.1184384  1.4445680
-#> [4,]  0.5396579 -0.8330210 -2.1184384  0.0000000  0.2491035
-#> [5,] -0.4403079  1.1194375 -1.4445680 -0.2491035  0.0000000
-scaled_dir
-#>            [,1]       [,2]       [,3]       [,4]       [,5]
-#> [1,]  0.0000000 -0.6010657 -0.9326503  1.3232021  1.2681686
-#> [2,]  0.6010657  0.0000000  2.2049703  0.9136184 -0.4148316
-#> [3,]  0.9326503 -2.2049703  0.0000000 -2.0971388 -1.1516225
-#> [4,] -1.3232021 -0.9136184  2.0971388  0.0000000  1.3479113
-#> [5,] -1.2681686  0.4148316  1.1516225 -1.3479113  0.0000000
-```
-
-Example for the 1-D Sphere (aka a circle)
-
-``` r
+# Create a random vector with two elements on a circle
 sp <- sphere_random_point(1)
+# Make a tangent vector with norm 1
 tang <- sphere_random_tangent(sp)
-# Make sure that norm of 'tang' is 1
 tang <- tang / sqrt(sum(tang^2))
 
-
+# Plot different step lengths along the direction and 
+# highlight the starting point in red and the point at the injectivity radius in green
 plot(t(do.call(cbind, lapply(seq(0, 2 * pi, l = 31), \(t) sphere_map(t * tang, sp)))), asp = 1)
 points(t(sp), col = "red")
-points(t(sphere_map(pi * tang, sp)), col = "green")
+points(t(sphere_map(sphere_injectivity_radius() * tang, sp)), col = "green")
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
-
-Example for the Grassmann manifold
-
-``` r
-poi <- grassmann_random_point(5, 2)
-tan <- grassmann_random_tangent(poi)
-tan <- tan / sqrt(sum(tan^2))
-
-xg <- seq(0, 10, l = 100)
-diffs <- sapply(xg, \(t){
-  diff <- grassmann_log(poi, grassmann_map(t * tan, poi))
-  sqrt(sum(diff^2))
-})
-
-plot(xg, diffs)
-abline(v = grassmann_injectivity_radius() * (1:4), col = "red")
-```
-
-<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+<img src="man/figures/README-circle_injectivity_radius-1.png" width="100%" />
 
 # Alternatives
 

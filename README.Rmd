@@ -63,7 +63,7 @@ rotation <- rotation_random_point(2)
 ```
 
 We can visualize it's effect on a random set of points
-```{r}
+```{r rotation_visualization_2d}
 points <- rbind(rnorm(n = 20), rnorm(20))
 rotated_points <- rotation %*% points
 plot(t(points), pch = 16, col = "black", asp = 1, xlim = c(-3, 3), ylim = c(-2, 2))
@@ -99,51 +99,24 @@ rotation3
 rotation_map(v = direction, base_point = rotation2)
 ```
 
-Lastly, the injectivity radius is an an important concept of every manifold. It is the largest distance for which the 
-exponential map is a diffeomorphism. The injectivity radius of the rotation manifold is $\sqrt{2} \pi$ (*this appears to be only a lower bound*). That means that
-for tangent vectors with a large norm, the exponential map returns points for which there exists a more direct connection.
+Lastly, it is important to understand that the Sphere, the Grassmann, the Stiefel, and the Rotation manifold have a non-infinite injectivity radius. 
+The injectivity radius is furthest we can go along a manifold and still guarantee that $\log(p, \exp_p(v))$ returns the original tangent vector $v$. 
+The concept is clearest for a 1-Sphere (aka a circle): if we go further than 180° ($pi$ radians), we end up at a point for which there exist a shorter path to
+the starting point than the original direction.
 
-```{r}
-scaled_dir <- direction / sqrt(sum(direction^2)) * 6
-sqrt(sum(scaled_dir^2))
-
-new_point <- rotation_map(v = scaled_dir, base_point = rotation2)
-rotation_log(rotation2, new_point)
-scaled_dir
-```
-
-
-Example for the 1-D Sphere (aka a circle)
-
-```{r}
+```{r circle_injectivity_radius}
+# Create a random vector with two elements on a circle
 sp <- sphere_random_point(1)
+# Make a tangent vector with norm 1
 tang <- sphere_random_tangent(sp)
-# Make sure that norm of 'tang' is 1
 tang <- tang / sqrt(sum(tang^2))
 
-
+# Plot different step lengths along the direction and 
+# highlight the starting point in red and the point at the injectivity radius in green
 plot(t(do.call(cbind, lapply(seq(0, 2 * pi, l = 31), \(t) sphere_map(t * tang, sp)))), asp = 1)
 points(t(sp), col = "red")
-points(t(sphere_map(pi * tang, sp)), col = "green")
+points(t(sphere_map(sphere_injectivity_radius() * tang, sp)), col = "green")
 ```
-
-Example for the Grassmann manifold
-
-```{r}
-poi <- grassmann_random_point(5, 2)
-tan <- grassmann_random_tangent(poi)
-tan <- tan / sqrt(sum(tan^2))
-
-xg <- seq(0, 10, l = 100)
-diffs <- sapply(xg, \(t){
-  diff <- grassmann_log(poi, grassmann_map(t * tan, poi))
-  sqrt(sum(diff^2))
-})
-
-plot(xg, diffs)
-abline(v = grassmann_injectivity_radius() * (1:4), col = "red")
-```
-
 
 # Alternatives
 
