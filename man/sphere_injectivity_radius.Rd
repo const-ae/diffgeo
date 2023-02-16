@@ -14,7 +14,7 @@ euclidean_injectivity_radius()
 
 grassmann_injectivity_radius()
 
-rotation_injectivity_radius(n)
+rotation_injectivity_radius()
 
 sphere_injectivity_radius()
 
@@ -22,14 +22,11 @@ stiefel_injectivity_radius()
 
 spd_injectivity_radius()
 }
-\arguments{
-\item{n}{the dimension of the manifold}
-}
 \value{
 injectivity radii:
 \itemize{
 \item Sphere: \eqn{\pi}
-\item Rotation: \eqn{\sqrt{n} \pi}
+\item Rotation: \eqn{\pi / 2}  (\emph{maybe}, see the at \href{https://github.com/JuliaManifolds/Manifolds.jl/issues/573}{discussion})
 \item Grassmann: \eqn{\pi/2}
 \item Stiefel: \eqn{>0.89\,\pi}
 \item Symmetric positive definite (SPD): \eqn{\inf}

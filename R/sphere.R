@@ -41,8 +41,6 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 
 #' The injectivity radius of a manifold
 #'
-#' @param n the dimension of the manifold
-#'
 #' @details
 #'   The injectivity radius is the size of the
 #'   largest tangent vector for which the exponential map
@@ -55,7 +53,7 @@ sphere_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 #' @return
 #'   injectivity radii:
 #'   * Sphere: \eqn{\pi}
-#'   * Rotation: \eqn{\sqrt{n} \pi}
+#'   * Rotation: \eqn{\pi / 2}  (*maybe*, see the at [discussion](https://github.com/JuliaManifolds/Manifolds.jl/issues/573))
 #'   * Grassmann: \eqn{\pi/2}
 #'   * Stiefel: \eqn{>0.89\,\pi}
 #'   * Symmetric positive definite (SPD): \eqn{\inf}

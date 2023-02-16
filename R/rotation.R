@@ -47,8 +47,8 @@ rotation_check_tangent <- function(v, base_point, tol = 1e-12, error = TRUE){
 
 #' @rdname sphere_injectivity_radius
 #' @export
-rotation_injectivity_radius <- function(n){
-  pi * sqrt(2)
+rotation_injectivity_radius <- function(){
+  pi / 2
 }
 
 
